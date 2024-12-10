@@ -77,7 +77,7 @@ if os.path.exists(file_path):
     st.sidebar.header("Filter Options")
 
     # Extract unique team names
-    unique_teams = sorted(df['home_team'].append(df['away_team']).unique())
+    unique_teams = sorted(pd.concat([df['home_team'], df['away_team']]).unique())
 
     # Dropdown for team selection
     selected_team = st.sidebar.selectbox("Select a Team", unique_teams)
